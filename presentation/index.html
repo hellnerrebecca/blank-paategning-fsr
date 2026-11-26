@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="da"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blank påtegning – fiktiv kommunikationsplan for FSR</title>
+<style>
+@font-face{font-family:'Libre Baskerville';font-weight:400;font-style:normal;font-display:block;src:url(fonts/libre-baskerville-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Libre Baskerville';font-weight:700;font-style:normal;font-display:block;src:url(fonts/libre-baskerville-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Public Sans';font-weight:400;font-style:normal;font-display:block;src:url(fonts/public-sans-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Public Sans';font-weight:600;font-style:normal;font-display:block;src:url(fonts/public-sans-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Public Sans';font-weight:700;font-style:normal;font-display:block;src:url(fonts/public-sans-latin-700-normal.woff2) format('woff2')}
+
+section {
+  padding: 128px;
+  background: #F6F3EC;
+  color: #13293D;
+  font-family: 'Public Sans', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+section.dark { background: #13293D; color: #F6F3EC; }
+section.alt { background: #E9E4D8; }
+
+.eyebrow {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #B2461A;
+  margin: 0 0 24px 0;
+}
+.dark .eyebrow { color: #E8854F; }
+
+h1 {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 150px;
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 0;
+  color: #F6F3EC;
+}
+h2 {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 48px 0;
+  color: #13293D;
+}
+.dark h2 { color: #F6F3EC; }
+h3 {
+  font-family: 'Public Sans', Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 14px 0;
+  color: #13293D;
+}
+.dark h3 { color: #F6F3EC; }
+
+p { font-size: 28px; line-height: 1.4; margin: 0; color: #3E4A56; }
+.dark p { color: #C9D3DC; }
+.lead { font-size: 40px; line-height: 1.35; color: #13293D; }
+.dark .lead { color: #F6F3EC; }
+
+ul { margin: 0; padding-left: 36px; font-size: 28px; line-height: 1.4; color: #3E4A56; }
+li { margin: 0 0 14px 0; }
+.dark ul { color: #C9D3DC; }
+
+.row { display: flex; gap: 40px; }
+.col { display: flex; flex-direction: column; flex: 1; }
+.card {
+  flex: 1;
+  background: #FCFBF7;
+  border-top: 6px solid #13293D;
+  padding: 36px;
+}
+.alt .card { background: #F6F3EC; }
+.dark .card { background: #1E3A52; border-top: 6px solid #E8854F; }
+.card .num {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #B2461A;
+  margin: 0 0 16px 0;
+}
+.dark .card .num { color: #E8854F; }
+
+.tag {
+  align-self: flex-start;
+  background: #13293D;
+  color: #F6F3EC;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 6px;
+  margin: 0 0 24px 0;
+}
+.dark .tag { background: #E8854F; color: #13293D; }
+
+.label {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #13293D;
+  margin: 0 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 3px solid #13293D;
+}
+
+.stamp {
+  position: absolute;
+  border: 6px solid #B2461A;
+  color: #B2461A;
+  padding: 18px 34px;
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-align: center;
+  transform: rotate(-8deg);
+  animation: stamp 0.45s ease-out 0.6s both;
+}
+.dark .stamp { border: 6px solid #E8854F; color: #E8854F; }
+@keyframes stamp {
+  from { opacity: 0; transform: rotate(-8deg) scale(1.5); }
+  to { opacity: 1; transform: rotate(-8deg) scale(1); }
+}
+
+.rise { animation: rise 0.5s ease-out both; animation-delay: calc(var(--i, 0) * 120ms); }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ledger { background: #FCFBF7; border: 3px solid #13293D; padding: 40px 44px; position: relative; }
+.ledger .lhead { font-family: 'Libre Baskerville', Georgia, serif; font-size: 32px; font-weight: 700; color: #13293D; margin: 0 0 6px 0; }
+.ledger .lsub { font-size: 24px; color: #3E4A56; margin: 0 0 24px 0; }
+.lrow { display: flex; justify-content: space-between; border-bottom: 2px dotted #8A96A3; padding: 10px 0; }
+.lrow p { font-size: 28px; color: #13293D; }
+.lrow.total { border-bottom: none; border-top: 3px solid #13293D; margin-top: 8px; }
+.lrow.total p { font-weight: 700; }
+
+.step { background: #FCFBF7; border-left: 6px solid #B2461A; padding: 16px 24px; }
+.step p { color: #13293D; }
+.arrow { width: 40px; height: 32px; align-self: center; margin: 8px 0; }
+
+table { font-size: 28px; color: #13293D; width: 100%; }
+.small { font-size: 24px; }
+
+section{position:relative}
+
+html,body{margin:0;height:100%;background:#0B1622;overflow:hidden}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:0 0}
+#stage>section{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:none}
+#stage>section.on{display:flex}
+aside.notes{display:none}
+th{text-align:left}
+th,td{padding:12px 12px 12px 0;border-bottom:1px solid #C9C2B2}
+.clean #hud{display:none}
+#hud{position:fixed;bottom:14px;right:18px;font:14px 'Public Sans',Arial,sans-serif;color:#C9D3DC;opacity:.7;user-select:none}
+#hud button{background:none;border:1px solid #C9D3DC;color:#C9D3DC;border-radius:4px;padding:4px 10px;margin-left:6px;cursor:pointer;font:inherit}
+@media print{
+ @page{size:1920px 1080px;margin:0}
+ html,body{height:auto;overflow:visible;background:none}
+ #stage{position:static;transform:none!important;width:auto;height:auto}
+ #stage>section{display:flex!important;position:relative;page-break-after:always;break-after:page}
+ #stage>section *{animation:none!important}
+ #hud{display:none}
+}
+
+</style></head><body>
+<div id="stage">
+<section id="cover" class="dark" style="justify-content:center">
+<p class="eyebrow">Kommunikationsplan · FSR – danske revisorer · Fiktivt case</p>
+<h1>Blank<br>påtegning</h1>
+<p class="lead" style="max-width:1150px;margin-top:48px;color:#C9D3DC">Kampagnekoncept: FSR lader medlemmerne revidere værdien af deres eget medlemskab – baseret på (fiktive) indsigter fra unge revisorer</p>
+<div class="stamp" style="right:160px;top:220px">Uden<br>forbehold</div>
+<aside class="notes">Konceptet er fiktivt og udarbejdet som case. Det er bygget i samme struktur som kampagnen »Gift ved første sug«: indsigter fra målgruppen, et bærende koncept med en genkendelig reference og tre konkrete produkter. Referencen her er revisorens egen verden: en blank påtegning er det bedste, et regnskab kan få.</aside>
+</section>
+<section id="udfordring">
+<p class="eyebrow">Baggrund</p>
+<h2>Værdien er der – men den er usynlig</h2>
+<div class="row" style="margin-bottom:56px">
+<div class="card rise" style="--i:1"><p class="num">01</p><h3>Faget forandres</h3><p>AI, ny regulering og nye krav til virksomhederne ændrer revisorens hverdag. Medlemmerne skal kunne se, hvad FSR gør for dem i den udvikling.</p></div>
+<div class="card rise" style="--i:2"><p class="num">02</p><h3>Medlemskabet er usynligt</h3><p>Mange unge medlemmer har fået medlemskabet gennem arbejdet. De har ikke selv valgt det – og ved ikke, hvad det indeholder.</p></div>
+<div class="card rise" style="--i:3"><p class="num">03</p><h3>Svaret søges et andet sted</h3><p>Faglige spørgsmål ryger i et generelt AI-værktøj, før nogen ringer til FSR. Medlemsservice skal være dér, hvor svaret søges.</p></div>
+</div>
+<p class="lead"><b>Opgaven:</b> Dokumentér og kommunikér den værdi, medlemmerne får – så den kan ses, bruges og deles.</p>
+<aside class="notes">Opgaven er hentet direkte fra stillingsopslaget: at dokumentere og kommunikere medlemsværdien, bl.a. via Mit Medlemskab, og at bruge AI til at styrke medlemsservice.</aside>
+</section>
+<section id="maalgruppe" class="alt">
+<p class="eyebrow">Afgrænsning og målgruppe</p>
+<h2>Unge revisorer – der hvor medlemskabet vindes eller tabes</h2>
+<div class="row" style="gap:64px">
+<div class="col" style="flex:3">
+<p class="label">Primær målgruppe</p>
+<ul>
+<li>Personlige medlemmer på 22–32 år: revisorassistenter, revisorer under uddannelse og nyuddannede cand.merc.aud.’er</li>
+<li>Ansat i både store og små medlemsvirksomheder</li>
+<li>Har ofte fået medlemskabet via arbejdsgiveren – og står over for jobskifte, eksamen eller første busy season</li>
+</ul>
+<p class="label" style="margin-top:28px">Sekundær målgruppe</p>
+<ul>
+<li>Partnere og HR i medlemsvirksomhederne, som betaler, anbefaler og deler</li>
+</ul>
+</div>
+<div class="card" style="flex:2;background:#13293D;border-top:6px solid #B2461A">
+<p class="tag" style="background:#E8854F;color:#13293D">Fiktivt datagrundlag</p>
+<h3 style="color:#F6F3EC">Indsigtsarbejde</h3>
+<ul style="color:#C9D3DC">
+<li>8 semistrukturerede interviews med unge medlemmer</li>
+<li>Spørgeskema til 140 medlemmer på 22–32 år</li>
+<li>Samtykke og GDPR-hjemmel på plads før brug af besvarelser</li>
+</ul>
+</div>
+</div>
+<aside class="notes">Alle tal og indsigter i casen er opstillet til formålet. I et rigtigt projekt ville man gøre som i Københavns Kommune-projektet: gå ud til målgruppen først og bygge kampagnen på deres egne ord.</aside>
+</section>
+<section id="indsigter">
+<p class="eyebrow">Data fra målgruppen · fiktive tal</p>
+<h2>Det bygger vi kampagnen på</h2>
+<div class="row" style="gap:64px">
+<div class="col">
+<p class="label">Indsigter</p>
+<ul>
+<li>Medlemskabet er et arbejdsredskab, ikke et fællesskab: værdien mærkes, når man sidder fast i en sag</li>
+<li>»Jeg spørger ChatGPT først – og så min senior«: AI og kolleger er første stop</li>
+<li>Fagsproget er et fællesskab i sig selv: »afstemt«, »væsentligt«, »forbehold«, »busy season«</li>
+<li>De vil hellere vise end læse: kurser og beviser deles på LinkedIn</li>
+</ul>
+</div>
+<div class="col">
+<p class="label">Fakta</p>
+<ul>
+<li>7 ud af 10 kan ikke nævne tre medlemsfordele</li>
+<li>Under 1 ud af 5 har logget ind på Mit Medlemskab det seneste år</li>
+<li>Kanaler: LinkedIn, Instagram og arbejdspladsens Teams-kanaler</li>
+<li>Mest værdsat: efteruddannelse, faglige svar og netværk</li>
+<li>Størst risiko for udmeldelse: ved jobskifte og efter endt uddannelse</li>
+</ul>
+</div>
+</div>
+<aside class="notes">Opstillet efter samme logik som »Gift ved første sug«: indsigter (hvordan målgruppen tænker og taler) til venstre, fakta (hvad de gør og hvor de er) til højre. Fagsproget gør det samme som slangordene for nikotin i det oprindelige projekt: det er målgruppens eget sprog, og kampagnen låner det.</aside>
+</section>
+<section id="ramme" class="alt">
+<p class="eyebrow">Strategisk ramme</p>
+<h2>Formål, mål og budskab</h2>
+<div class="row" style="gap:64px">
+<div class="col" style="flex:2">
+<p class="label">Formål</p>
+<p style="margin-bottom:36px">Gøre medlemsværdien synlig for unge medlemmer – og gøre FSR til første stop, når de søger faglige svar.</p>
+<p class="label">Kernebudskab</p>
+<p style="font-family:'Libre Baskerville',Georgia,serif;font-size:32px;font-weight:700;color:#13293D;margin-bottom:36px">»Dit medlemskab er revideret – og det holder.«</p>
+<p class="label">Tone</p>
+<p>Faglig, selvironisk og menneskelig. Revisorer griner gerne af sig selv – bare tallene er rigtige.</p>
+</div>
+<div class="col" style="flex:3">
+<p class="label">Mål efter 12 måneder (fiktive måltal)</p>
+<table>
+<tr><th style="width:52%">Mål</th><th style="width:24%">Fra</th><th style="width:24%">Til</th></tr>
+<tr><td>Kan nævne tre medlemsfordele</td><td>30 %</td><td>50 %</td></tr>
+<tr><td>Logger ind på Mit Medlemskab</td><td>18 %</td><td>40 %</td></tr>
+<tr><td>Udmeldelser ved jobskifte</td><td>[indeks 100]</td><td>−15 %</td></tr>
+<tr><td>Delte medlemsregnskaber</td><td>0</td><td>1.000</td></tr>
+<tr><td>Spørgsmål løst af Spørg FSR</td><td>0</td><td>60 %</td></tr>
+</table>
+</div>
+</div>
+<aside class="notes">Målene er SMART-formuleret, så de kan følges op. Udgangspunktet for udmeldelser er sat som et indeks, fordi det rigtige tal skal hentes fra CRM.</aside>
+</section>
+<section id="koncept" class="dark">
+<p class="eyebrow">Konceptet</p>
+<h2>Blank påtegning</h2>
+<p class="lead" style="max-width:1200px;margin-bottom:56px">I revision er en blank påtegning det bedste, et regnskab kan få: et retvisende billede, uden forbehold. Kampagnen vender det om – FSR lader sine egne medlemmer revidere medlemskabet.</p>
+<div class="row">
+<div class="card rise" style="--i:1"><p class="num">01</p><h3>Fagets eget sprog</h3><p>Genkendelse fra første sekund. Kun en revisor forstår joken helt – og det er pointen.</p></div>
+<div class="card rise" style="--i:2"><p class="num">02</p><h3>Selvironi giver troværdighed</h3><p>FSR tør blive revideret. Finder medlemmerne et forbehold, viser FSR, hvad der bliver rettet.</p></div>
+<div class="card rise" style="--i:3"><p class="num">03</p><h3>Én rød tråd</h3><p>Konceptet bærer alle tre produkter: regnskabet, videoerne og AI-assistenten.</p></div>
+</div>
+<div class="stamp" style="right:128px;top:150px">Revideret</div>
+<aside class="notes">Ligesom »Gift ved første sug« lånte formatet fra »Gift ved første blik«, låner dette koncept en reference, målgruppen kender indefra. Forskellen er, at referencen her er fagspecifik: den rammer smallere, men dybere – og det passer til en interesseorganisation, hvor fællesskabet netop er faget.</aside>
+</section>
+<section id="produkt1">
+<p class="eyebrow">Produkt 1</p>
+<h2>Dit Medlemsregnskab</h2>
+<div class="row" style="gap:64px;align-items:flex-start">
+<div class="col" style="flex:5">
+<ul>
+<li>Et personligt »årsregnskab« i Mit Medlemskab hver januar: kurser, faglige svar, events og rabatter – omregnet til kroner</li>
+<li>Sat op som et rigtigt regnskab, med noter og FSR’s påtegning nederst</li>
+<li>Kan deles som LinkedIn-billede: »Mit medlemskab – revideret uden forbehold«</li>
+<li>Bygger på data fra CRM: kræver ren registrering, og deling sker kun med aktivt samtykke</li>
+</ul>
+</div>
+<div class="ledger" style="flex:4">
+<p class="lhead">Medlemsregnskab 2027</p>
+<p class="lsub">Medlem: [Navn] · Eksempel med fiktive tal</p>
+<div class="lrow"><p>Efteruddannelse (3 kurser)</p><p>6.900 kr.</p></div>
+<div class="lrow"><p>Faglige svar (5)</p><p>2.500 kr.</p></div>
+<div class="lrow"><p>Netværksevents (2)</p><p>800 kr.</p></div>
+<div class="lrow"><p>Rabatter</p><p>1.200 kr.</p></div>
+<div class="lrow total"><p>Samlet værdi</p><p>11.400 kr.</p></div>
+<div class="stamp" style="right:36px;bottom:-56px;font-size:32px;padding:12px 24px">Blank påtegning</div>
+</div>
+</div>
+<aside class="notes">Produktet rammer direkte opgaven i stillingsopslaget: at dokumentere og kommunikere medlemsværdien via Mit Medlemskab. Det giver også medlemmerne en grund til at logge ind – og en grund til at dele.</aside>
+</section>
+<section id="produkt2" class="alt">
+<p class="eyebrow">Produkt 2</p>
+<h2>Videoserien »Blank påtegning«</h2>
+<div class="row" style="gap:64px">
+<div class="col" style="flex:5">
+<ul>
+<li>Short-form (45–60 sek.) på LinkedIn og Instagram</li>
+<li>Unge revisorer fra medlemsvirksomhederne »reviderer« ét løfte fra FSR pr. afsnit</li>
+<li>Fast format: løftet → stikprøven → konklusionen. Blank påtegning eller forbehold – og ved forbehold viser FSR, hvad der rettes</li>
+<li>Humor fra hverdagen: busy season, deadlines og kaffe kl. 23</li>
+<li>Samtalestarter på arbejdspladsen, så budskabet går via kollegerne</li>
+</ul>
+</div>
+<div class="col" style="flex:4">
+
+<div class="step" style="margin-bottom:10px"><p><b>1.</b> Hotline kl. 16.55 – tager de den?</p></div>
+<div class="step" style="margin-bottom:10px"><p><b>2.</b> Kan efteruddannelsen bruges i morgen?</p></div>
+<div class="step" style="margin-bottom:10px"><p><b>3.</b> Hvad laver FSR egentlig på Christiansborg?</p></div>
+<div class="step" style="margin-bottom:10px"><p><b>4.</b> Spørg FSR mod ChatGPT</p></div>
+<div class="step"><p><b>5.</b> Forbeholdet: Mit Medlemskab er svært at finde rundt i</p></div>
+</div>
+</div>
+<aside class="notes">Målgruppen vil helst have viden fra kolleger og på sociale medier – samme fund som i nikotinprojektet. Derfor er afsænderne unge revisorer, ikke FSR selv. Afsnit 5 er bevidst et forbehold: det gør de andre påtegninger troværdige.</aside>
+</section>
+<section id="produkt3">
+<p class="eyebrow">Produkt 3</p>
+<h2>»Spørg FSR« – AI-assistent i Mit Medlemskab</h2>
+<div class="row" style="gap:64px">
+<div class="col" style="flex:5">
+<ul>
+<li>Svarer på faglige og medlemsrelaterede spørgsmål ud fra FSR’s egne vejledninger og materialer</li>
+<li>Viser altid kilden – og har altid knappen »Tal med en konsulent«</li>
+<li>Spørgsmål, den ikke kan svare på, går videre til medlemsservice og registreres i CRM</li>
+<li>Lanceres sammen med videoafsnit 4: »Spørg FSR mod ChatGPT«</li>
+</ul>
+</div>
+<div class="col" style="flex:4">
+<div class="step rise" style="--i:1"><p>Medlemmet stiller et spørgsmål</p></div>
+<svg width="28" height="44" viewBox="0 0 28 44" style="align-self:center;margin:8px 0" aria-hidden="true"><path d="M9 0h10v26h9L14 44 0 26h9z" fill="#B2461A"/></svg>
+<div class="step rise" style="--i:2"><p>AI svarer med kilde fra FSR</p></div>
+<svg width="28" height="44" viewBox="0 0 28 44" style="align-self:center;margin:8px 0" aria-hidden="true"><path d="M9 0h10v26h9L14 44 0 26h9z" fill="#B2461A"/></svg>
+<div class="step rise" style="--i:3"><p>Usikkert svar? En konsulent tager over</p></div>
+<svg width="28" height="44" viewBox="0 0 28 44" style="align-self:center;margin:8px 0" aria-hidden="true"><path d="M9 0h10v26h9L14 44 0 26h9z" fill="#B2461A"/></svg>
+<div class="step rise" style="--i:4"><p>Læringen går tilbage i CRM: hvad har medlemmerne brug for?</p></div>
+</div>
+</div>
+<aside class="notes">Her mødes kommunikation og AI-implementering, som stillingsopslaget beskriver. Assistenten er ikke kun en service: de spørgsmål, den ikke kan svare på, er gratis indsigt i medlemmernes behov.</aside>
+</section>
+<section id="tidsplan" class="alt">
+<p class="eyebrow">Udrulning</p>
+<h2>Tidsplan 2027</h2>
+<div class="row" style="gap:32px">
+<div class="card rise" style="--i:1"><p class="num">Q1</p><h3>Grundlag</h3><p class="small">Ryd op i CRM-data, lav GDPR-vurdering og rekrutter 6 ambassadører fra medlemsvirksomheder.</p></div>
+<div class="card rise" style="--i:2"><p class="num">Q2</p><h3>Pilot</h3><p class="small">Test Spørg FSR internt i sekretariatet og med 20 medlemmer. Optag de første videoer.</p></div>
+<div class="card rise" style="--i:3"><p class="num">Q3–Q4</p><h3>Lancering</h3><p class="small">Videoserien kører med ét afsnit hver tredje uge. Spørg FSR lanceres i god tid før busy season.</p></div>
+<div class="card rise" style="--i:4"><p class="num">Jan. 2028</p><h3>Påtegning</h3><p class="small">Det første Medlemsregnskab sendes ud, og kampagnen evalueres mod målene.</p></div>
+</div>
+<p class="lead" style="margin-top:56px">Rækkefølgen følger medlemmernes år: hjælpen skal være klar, før travlheden starter.</p>
+<aside class="notes">Spørg FSR lanceres før januar, fordi indsigterne viser, at værdien mærkes i pressede perioder. Medlemsregnskabet kommer i januar, når året kan gøres op.</aside>
+</section>
+<section id="ansvar">
+<p class="eyebrow">Ansvarlighed og forankring</p>
+<h2>AI, GDPR og ejerskab</h2>
+<div class="row">
+<div class="card rise" style="--i:1"><p class="num">Data</p><ul><li>Medlemsregnskabet viser kun medlemmets egne data</li><li>Deling kræver aktivt samtykke</li><li>Dataminimering og databehandleraftale med leverandøren</li></ul></div>
+<div class="card rise" style="--i:2"><p class="num">AI</p><ul><li>Det står tydeligt, at man taler med en AI (AI-forordningens krav om gennemsigtighed)</li><li>Et menneske kan altid tage over</li><li>Svarene kvalitetstjekkes løbende</li></ul></div>
+<div class="card rise" style="--i:3"><p class="num">Forankring</p><ul><li>Medlemsservice ejer Spørg FSR</li><li>Fagkonsulenter godkender kildematerialet</li><li>Månedligt gennemsyn af ubesvarede spørgsmål</li></ul></div>
+</div>
+<aside class="notes">En interesseorganisation lever af tillid. Derfor er ansvarlig brug af AI og medlemsdata ikke et tillæg til kampagnen – det er en forudsætning for, at påtegningen er troværdig.</aside>
+</section>
+<section id="afslutning" class="dark" style="justify-content:center">
+<p class="eyebrow">Den uafhængige revisors påtegning</p>
+<h2 style="max-width:1300px;font-weight:400;line-height:1.3">Vi har revideret medlemskabet. Det er vores opfattelse, at det giver et retvisende billede af den værdi, FSR skaber for sine medlemmer.</h2>
+<p style="margin-top:24px">Fiktivt case – alle tal, indsigter og citater er opstillet til formålet.</p>
+<div class="stamp" style="right:128px;bottom:150px">Blank påtegning</div>
+<aside class="notes">Afslutningen låner revisionspåtegningens faste formulering, så hele kampagnen slutter, hvor konceptet begynder.</aside>
+</section>
+
+</div>
+<div id="hud"><span id="n"></span><button onclick="show(i-1)" aria-label="Forrige">‹</button><button onclick="show(i+1)" aria-label="Næste">›</button></div>
+<script>
+const S=[...document.querySelectorAll('#stage>section')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1920,innerHeight/1080);st.style.transform=`scale(${k}) translate(-50%,-50%)`;}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));document.getElementById('n').textContent=(i+1)+' / '+S.length;history.replaceState(null,'','#'+(i+1));}
+addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key))show(i+1);if(['ArrowLeft','PageUp'].includes(e.key))show(i-1);if(e.key==='Home')show(0);if(e.key==='End')show(S.length-1);if(e.key==='f')document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();});
+document.getElementById('stage').addEventListener('click',e=>show(e.clientX<innerWidth/3?i-1:i+1));
+if(location.search.includes('clean'))document.body.classList.add('clean');addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body></html>
